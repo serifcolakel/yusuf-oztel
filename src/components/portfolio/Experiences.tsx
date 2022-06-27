@@ -11,10 +11,12 @@ const Experiences: React.FC = () => {
     status: string;
     title: string;
     subtitle: string;
-    description: string;
+    type: string;
     start: string;
     end: string;
+    location: string;
     language: string;
+    description?: string;
     note: string;
     school: string;
     color: string;
@@ -23,13 +25,56 @@ const Experiences: React.FC = () => {
     {
       status: "Yedek Subay",
       school: "Türk Silahlı Kuvvetleri",
-      title: "",
-      subtitle: "Bilişim Teknolojileri",
-      description: "Örgün Öğretim",
-      language: "Türkçe",
-      note: "Diploma Notu : 70.71/100",
+      title: "Yedek Subay",
+      subtitle: "",
+      type: "Tam Zamanlı",
+      language: "",
+      note: "",
+      location: "İzmir",
       start: "2021",
       end: "Devam ediyor",
+      color: "#9C27B0",
+    },
+    {
+      status: "Stajyer Mühendis",
+      school: "Çelikler Holding",
+      title: "Elektrik Elektronik Mühendisi",
+      subtitle: "Dönem Stajı",
+      type: "Dönemsel",
+      location: "Aydın",
+      description: "Jeotermal Enerji Santralinde Elektrik üretimi",
+      language: "Türkçe",
+      note: "",
+      start: "17.02.2020",
+      end: "22.05.2020",
+      color: "#9C27B0",
+    },
+    {
+      status: "Stajyer Mühendis",
+      school: "İntek Yazılım ve Otomasyon",
+      title: "Elektrik Elektronik Mühendisi",
+      location: "Elazığ",
+      subtitle: "Bilişim Teknolojileri",
+      type: "Tam Zamanlı",
+      description: "Otomasyon Sistemleri Tasarımı Bakımı Onarımı",
+      language: "Türkçe",
+      note: "",
+      start: "2018",
+      end: "2018",
+      color: "#9C27B0",
+    },
+    {
+      status: "Stajyer Mühendis",
+      school: "Mertler Enerji",
+      title: "Elektrik Elektronik Mühendisi",
+      location: "Trabzon",
+      subtitle: "Bilişim Teknolojileri",
+      type: "Tam Zamanlı",
+      description: " Elektrik Enerjisi Üretimi",
+      language: "Türkçe",
+      note: "",
+      start: "04.06.2018",
+      end: "04.07.2018",
       color: "#9C27B0",
     },
   ];
@@ -71,14 +116,30 @@ const Experiences: React.FC = () => {
         }
       >
         <div className="flex flex-col gap-y-2">
-          <p>
-            <b> Öğrenim Dili :</b>{" "}
-            <span className="text-primary">{item.language}</span>
-          </p>
-          <p>
-            <b> Öğretim Tipi : </b>{" "}
-            <span className="text-primary">{item.description}</span>
-          </p>
+          {item.language && (
+            <p>
+              <b> Öğrenim Dili :</b>{" "}
+              <span className="text-primary">{item.language}</span>
+            </p>
+          )}
+          {item.type && (
+            <p>
+              <b> Öğretim Tipi : </b>{" "}
+              <span className="text-primary">{item.type}</span>
+            </p>
+          )}
+          {item.location && (
+            <p>
+              <b> Çalışma Yeri : </b>{" "}
+              <span className="text-primary">{item.location}</span>
+            </p>
+          )}
+          {item.description && (
+            <p>
+              <b> İş Tanımı : </b>{" "}
+              <span className="text-primary">{item.description}</span>
+            </p>
+          )}
           <p>
             <b> Başlangıç Tarihi : </b>{" "}
             <span className="text-primary">{item.start}</span>

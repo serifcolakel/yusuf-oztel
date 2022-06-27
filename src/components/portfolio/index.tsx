@@ -1,7 +1,5 @@
 import React, { useEffect, useRef } from "react";
-// import { BsFillTelephoneFill, BsLinkedin } from "react-icons/bs";
-// import { AiFillGithub, AiOutlineGlobal } from "react-icons/ai";
-// import { MdLocationPin, MdMail } from "react-icons/md";
+
 import ReactToPrint from "react-to-print";
 import About from "./About";
 import Contact from "./Contact";
@@ -18,6 +16,7 @@ export const ComponentToPrint = React.forwardRef(() => {
     window.document.title = "Yusuf Öztel | Portfolio";
   }, []);
   const componentRef = useRef<HTMLDivElement>(null);
+
   return (
     <>
       <ReactToPrint

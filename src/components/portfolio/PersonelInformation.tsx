@@ -16,7 +16,7 @@ const PersonelInformation: React.FC = () => {
     },
     {
       title: "TC KİMLİK NO",
-      value: "40772040026",
+      value: "Belirtmek İstemiyor",
     },
     {
       title: "DOĞUM TARİHİ",

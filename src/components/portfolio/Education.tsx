@@ -11,7 +11,7 @@ const Education: React.FC = () => {
     status: string;
     title: string;
     subtitle: string;
-    description: string;
+    type: string;
     start: string;
     end: string;
     language: string;
@@ -25,7 +25,7 @@ const Education: React.FC = () => {
       school: "Of HMB ULUSOY Meslek Lisesi",
       title: "Anadolu Meslek Lisesi",
       subtitle: "Bilişim Teknolojileri",
-      description: "Örgün Öğretim",
+      type: "Örgün Öğretim",
       language: "Türkçe",
       note: "Diploma Notu : 70.71/100",
       start: "Eylül 2009",
@@ -37,7 +37,7 @@ const Education: React.FC = () => {
       school: "Fırat Üniversitesi",
       title: "Lisans / Teknoloji Fakültesi",
       subtitle: "Elektrik-Elektronik Mühendisliği",
-      description: "Örgün Öğretim",
+      type: "Örgün Öğretim",
       language: "Türkçe",
       note: "Diploma Notu : 84/100",
       start: "Eylül 2015",
@@ -67,13 +67,21 @@ const Education: React.FC = () => {
 
   const customizedContent = (item: Education) => {
     return (
-      <div className="ml-6 p-3 border rounded-lg">
-        {/* title={item.title}
-        subTitle={item.subtitle} */}
-        <div className="p-4 flex flex-col items-center  justify-between">
-          <p>{item.school}</p>
-          <p className="text-primary font-bold ">{item.note}</p>{" "}
-        </div>
+      <Card
+        title={item.title}
+        subTitle={item.subtitle}
+        footer={
+          <span className="px-4 py-2 bg-secondary text-primary rounded-lg">
+            {item.status}
+          </span>
+        }
+        header={
+          <div className="p-4 flex flex-row items-center justify-between">
+            <p>{item.school}</p>
+            <p className="text-primary font-bold ">{item.note}</p>{" "}
+          </div>
+        }
+      >
         <div className="flex flex-col gap-y-2">
           <p>
             <b> Öğrenim Dili :</b>{" "}
@@ -81,7 +89,7 @@ const Education: React.FC = () => {
           </p>
           <p>
             <b> Öğretim Tipi : </b>{" "}
-            <span className="text-primary">{item.description}</span>
+            <span className="text-primary">{item.type}</span>
           </p>
           <p>
             <b> Başlangıç Tarihi : </b>{" "}
@@ -91,11 +99,8 @@ const Education: React.FC = () => {
             <b> Bitiş Tarihi : </b>{" "}
             <span className="text-primary">{item.end}</span>
           </p>
-          <span className="px-4 py-2 bg-secondary text-primary rounded-lg w-30 text-center">
-            {item.status}
-          </span>
         </div>
-      </div>
+      </Card>
     );
   };
   return (
