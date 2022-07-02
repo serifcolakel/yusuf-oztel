@@ -1,7 +1,4 @@
 import React from "react";
-import { BsFillTelephoneFill, BsLinkedin } from "react-icons/bs";
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
-import { MdLocationPin, MdMail } from "react-icons/md";
 import { GiCursedStar } from "react-icons/gi";
 const Languages: React.FC = () => {
   type Value = {
@@ -54,22 +51,22 @@ const Languages: React.FC = () => {
         DİL BİLGİLERİ
       </h5>
       <div className="pt-3 px-4 grid grid-cols-1 gap-y-4 w-full">
-        {links.map((link, idx) => (
+        {links.map((link: IconProps, idx: number) => (
           <div key={idx} className="flex flex-row gap-x-4 items-center w-full">
-            <b className="w-[10%]">{link.title}</b>
-            <div className="w-full flex flex-row items-center text-primary gap-x-4 bg-secondary border-r-white border-l-white border-l-8">
-              {link.values.map((value: Value) => (
+            <b className="w-[15%] md:w-[10%]">{link.title}</b>
+            <div className="w-full flex flex-col md:flex-row items-center text-primary gap-x-4 bg-secondary border-r-white border-l-white border-l-8">
+              {link.values.map((value: Value, idx: number) => (
                 <div
-                  key={value.title}
+                  key={idx}
                   className="w-full flex flex-row items-center gap-x-4"
                 >
                   <p className="text-sm font-bold text-secondary text-center py-2 my-2 bg-primary rounded-r-full border-white border-r-8 w-1/2">
                     {value.title}
                   </p>
-                  <div className="flex flex-row gap-x-2 items-center justify-center w-full">
+                  <div className="flex flex-row gap-x-2 items-center text-xl md:text-4xl justify-center w-full">
                     {Array.from({ length: Math.ceil(value.value) }).map(
                       (_, i) => (
-                        <GiCursedStar key={i} size={20} />
+                        <GiCursedStar key={i} />
                       )
                     )}
                   </div>

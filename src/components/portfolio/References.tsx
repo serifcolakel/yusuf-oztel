@@ -1,9 +1,9 @@
 import React from "react";
-import { BsFillTelephoneFill, BsLinkedin } from "react-icons/bs";
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
-import { MdLocationPin, MdMail } from "react-icons/md";
+import { BsFillTelephoneFill } from "react-icons/bs";
+import { MdMail } from "react-icons/md";
 const References: React.FC = () => {
   type RefsType = {
+    id: number;
     name: string;
     position: string;
     company: string;
@@ -17,6 +17,7 @@ const References: React.FC = () => {
   };
   const refs: RefsType[] = [
     {
+      id: 1,
       name: "Hakan Duman",
       position: "Öğretmen Albay (TSK)",
       company: "Türk Silahli Kuvvetleri",
@@ -35,8 +36,8 @@ const References: React.FC = () => {
         REFERANSLAR
       </h5>
       <div className="w-full pt-2 px-4">
-        {refs.map((ref: RefsType) => (
-          <div className="w-full flex flex-col gap-y-4">
+        {refs.map((ref: RefsType, idx: number) => (
+          <div key={ref.id} className="w-full flex flex-col gap-y-4">
             <div className="flex flex-row items-center text-primary gap-x-4 bg-secondary border-r-white border-l-white border-l-8">
               <p className="text-xl font-bold text-secondary w-1/2 text-center py-4 bg-primary rounded-r-full border-white border-r-8">
                 {ref.name}
@@ -44,7 +45,6 @@ const References: React.FC = () => {
               <span className="w-1/2 font-bold">{ref.position}</span>
             </div>
             <a
-              key={ref.name}
               className="flex flex-row gap-x-4 items-center hover:text-primary px-4"
               href={"mailto:" + ref.email}
             >
@@ -52,7 +52,6 @@ const References: React.FC = () => {
               <span>{ref.email}</span>
             </a>
             <a
-              key={ref.name}
               className="flex flex-row gap-x-4 items-center hover:text-primary px-4"
               href={"tel:" + ref.phone}
             >

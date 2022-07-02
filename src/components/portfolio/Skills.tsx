@@ -88,19 +88,22 @@ const Skills: React.FC = () => {
         BİLGİSAYAR YETKİNLİKLERİ
       </h5>
       <div className="pt-3 px-4 grid grid-cols-1 gap-y-4 w-full pb-4">
-        {links.map((link: IconProps, idx) => (
+        {links.map((link: IconProps, idx: number) => (
           <div key={idx} className="flex flex-row gap-x-4 items-center w-full">
-            <b className="w-[50%]">{link.title}</b>
+            <b className="w-full md:w-[50%]">{link.title}</b>
             <div className="w-full flex flex-row items-center text-primary gap-x-4  border-r-white border-l-white border-l-8">
-              {link.values.map((value) => (
-                <div className="w-full flex flex-row items-center gap-x-4">
+              {link.values.map((value: Value, idx: number) => (
+                <div
+                  key={idx}
+                  className="w-full flex flex-row items-center gap-x-4"
+                >
                   {/* <p className="text-sm font-bold text-secondary text-center py-2 my-2 bg-primary rounded-r-full border-white border-r-8 w-1/2">
                     {value.title}
                   </p> */}
-                  <div className="flex flex-row gap-x-2 items-center  w-full">
+                  <div className="flex flex-row gap-x-2 items-center text-xl md:text-5xl w-full">
                     {Array.from({ length: Math.ceil(value.value) }).map(
                       (_, i) => (
-                        <GiCursedStar key={i} size={40} />
+                        <GiCursedStar key={i} />
                       )
                     )}
                   </div>
